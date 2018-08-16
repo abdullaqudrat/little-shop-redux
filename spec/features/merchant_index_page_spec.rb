@@ -10,5 +10,10 @@ RSpec.describe 'Merchant index page' do
       expect(page).to have_content(@merchant_2.name)
     end
   end
-
+  it 'merchant name should have link to merchant show page' do
+    visit '/merchants'
+    click_on @merchant_1.name
+    save_and_open_page
+    expect(current_path).to eq("/merchants/#{@merchant_1.id}")
+  end
 end
