@@ -6,6 +6,7 @@ gem 'sinatra', require: 'sinatra/base'
 gem 'sinatra-activerecord'
 
 group :development, :test do
+  gem 'pry'
   gem 'capybara'
   gem 'launchy'
   gem 'rack-test'
