@@ -12,4 +12,10 @@ RSpec.describe 'Merchant update page' do
     visit "/merchants/1/edit"
     fill_in('merchant[name]', with: "Abdulla's Shop")
   end
+  it 'cancels form when user clicks cancel button and goes to show page' do
+    visit "/merchants/#{@merchant_1.id}/edit"
+    save_and_open_page
+    click_link('Cancel')
+    expect(current_path).to eq("/merchants/#{@merchant_1.id}")
+  end
 end

@@ -1,6 +1,9 @@
 <h1>Edit <%= @merchant.name %></h1>
-<form class="update-merchant" action="/merchants/show" method="POST">
+<form class="update-merchant" action="/merchants/<%= @merchant.id %>" method="POST">
   <input type='text' name='merchant[name]' placeholder='Merchant Name'>
-  <input type='submit' value="Cancel">
+  <a href="/merchants/<%= @merchant.id %>">Cancel</a>
   <input type='submit' value="Update Merchant">
 </form>
+
+<!-- <button type='button' name='Cancel' "/merchants/<%= @merchant.id %>" value='Cancel'</button> -->
+<!-- This will be our cancel button -->
