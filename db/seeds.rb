@@ -1,5 +1,6 @@
 require './app/models/merchant'
 require './app/models/item'
+require './app/models/invoice'
 require 'csv'
 
 CSV.foreach('./data/merchants.csv', headers: true, header_converters: :symbol) do |merchant|
@@ -20,4 +21,14 @@ CSV.foreach('./data/items.csv', headers: true, header_converters: :symbol) do |i
               created_at:   item[:created_at],
               updated_at:   item[:updated_at]
               )
+end
+
+CSV.foreach('./data/invoices.csv', headers: true, header_converters: :symbol) do |invoice|
+  Invoice.create( id:           invoice[:id],
+                  customer_id:  invoice[:customer_id],
+                  merchant_id:  invoice[:merchant_id],
+                  status:       invoice[:status],
+                  created_at:   invoice[:created_at],
+                  updated_at:   invoice[:updated_at]
+                  )
 end
