@@ -1,0 +1,11 @@
+<h1>Items</h1>
+
+  <form action="/items/new">
+    <input type="submit" value="Create A New Item">
+  </form>
+
+  <% @items.each do |i| %>
+    <img src="<%= i.image %>" alt="no image" height="120" width="110">
+    <h2><a href="/items/<%= i.id %>"><%= i.name %></a></h2>
+    <p><%= i.name %> price: <%= i.unit_price %></p>
+  <% end %>
