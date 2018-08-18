@@ -22,10 +22,9 @@ RSpec.describe 'Item index page' do
 
   it 'should show all item images' do
     visit '/items'
-    save_and_open_page
 
-    expect(page).to have_content(@item_1.image)
-    expect(page).to have_content(@item_2.image)
+    page.has_xpath?(@item_1.image)
+    page.has_xpath?(@item_2.image)
   end
 
   xit 'item name should have link to item show page' do
