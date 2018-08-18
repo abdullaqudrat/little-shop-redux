@@ -3,7 +3,7 @@
   <form action="/merchants/new">
     <input type="submit" value="Create A New Merchant">
   </form>
-  
+
   <% @merchants.each do |m| %>
     <h2><a href="/merchants/<%= m.id %>"><%= m.name %></a></h2>
     <form action="/merchants">
