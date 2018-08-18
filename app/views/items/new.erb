@@ -1,0 +1,16 @@
+<h1>Create New Item</h1>
+<form class="new-item" action="/items" method="POST">
+  <input type='text' name='item[name]' placeholder='Item Name'>
+  <input type='text' name='item[description]' placeholder='Item Description'>
+  <input type='text' name='item[unit_price]' placeholder='Item Price'>
+  <input type='text' name='item[image]' placeholder='Item Image'>
+  <select id='merchant_dropdown' name='merchant_dropdown' type='text'>
+  <% @merchants.each do |merchant| %>
+    <option value="<%= merchant.id %>"> <%= merchant.name %> </option>
+  <% end %>
+  </select>
+  <input type='submit' value="Create Item">
+</form>
+<form class="new-item" action="/items" method="GET">
+  <input type='submit' value="Cancel">
+</form>

@@ -1,4 +1,8 @@
 RSpec.describe 'Item create page' do
+  before(:each) do
+    @merchant_1 = Merchant.create(name: 'Beer World')
+    @merchant_2 = Merchant.create(name: 'Wine World')
+  end
 
   it 'should show item form heading' do
     visit "/items/new"
@@ -7,7 +11,7 @@ RSpec.describe 'Item create page' do
 
   it 'should select merchant name from drop down menu' do
     visit "/items/new"
-    select("Beer Shop", from: "Merchants")
+    select("Beer World", from: "merchant_dropdown")
   end
 
   it 'should fill in form with Item name' do
@@ -22,7 +26,7 @@ RSpec.describe 'Item create page' do
 
   it 'should fill in form with Item price' do
     visit "/items/new"
-    fill_in('item[price]', with: 14)
+    fill_in('item[unit_price]', with: 14)
   end
 
   it 'should fill in form with Item image path' do
