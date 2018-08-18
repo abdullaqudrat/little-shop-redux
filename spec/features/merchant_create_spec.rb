@@ -31,7 +31,6 @@ RSpec.describe 'Merchant create page' do
 
     fill_in('merchant[name]', with: "Abdulla's Shop")
     click_on "Create Merchant"
-    save_and_open_page
     expect(page).to have_content("Abdulla's Shop")
   end
 end

@@ -1,9 +1,11 @@
 <h1>Edit <%= @merchant.name %></h1>
-<form class="update-merchant" action="/merchants/<%= @merchant.id %>" method="POST">
+<form class="update-merchant" action="/merchants/<%= @merchant.id %>" method="PUT">
   <input type='text' name='merchant[name]' placeholder='Merchant Name'>
-  <a href="/merchants/<%= @merchant.id %>">Cancel</a>
+  <!-- <a href="/merchants/<%= @merchant.id %>">Cancel</a> -->
   <input type='submit' value="Update Merchant">
 </form>
-
+<form class="update-merchant" action="/merchants/<%= @merchant.id %>" method="GET">
+  <input type='submit' value="Cancel">
+</form>
 <!-- <button type='button' name='Cancel' "/merchants/<%= @merchant.id %>" value='Cancel'</button> -->
 <!-- This will be our cancel button -->

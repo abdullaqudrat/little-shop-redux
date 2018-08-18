@@ -4,17 +4,35 @@ RSpec.describe 'Merchant update page' do
   end
 
   it 'should show merchant name' do
-    visit "/merchants/1/edit"
+    visit "/merchants/#{@merchant_1.id}/edit"
     expect(page).to have_content("Edit #{@merchant_1.name}")
   end
 
   it 'should fill in form with Merchant name' do
-    visit "/merchants/1/edit"
+    visit "/merchants/#{@merchant_1.id}/edit"
     fill_in('merchant[name]', with: "Abdulla's Shop")
   end
+
   it 'cancels form when user clicks cancel button and goes to show page' do
     visit "/merchants/#{@merchant_1.id}/edit"
-    click_link('Cancel')
+    click_on 'Cancel'
     expect(current_path).to eq("/merchants/#{@merchant_1.id}")
+  end
+
+  it 'should link back to merchant show after Update button clicked' do
+    visit "/merchants/#{@merchant_1.id}/edit"
+
+    click_on "Update Merchant"
+    expect(current_path).to eq("/merchants/#{@merchant_1.id}")
+  end
+
+  it 'should show updated merchant at show page after Update button clicked' do
+
+    visit "/merchants/#{@merchant_1.id}/edit"
+
+    fill_in('merchant[name]', with: "Abdulla's Shop")
+    click_on "Update Merchant"
+    save_and_open_page
+    expect(page).to have_content("Abdulla's Shop")
   end
 end
