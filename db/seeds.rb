@@ -1,4 +1,5 @@
 require './app/models/merchant'
+require './app/models/item'
 require 'csv'
 
 CSV.foreach('./data/merchants.csv', headers: true, header_converters: :symbol) do |merchant|
@@ -15,7 +16,7 @@ CSV.foreach('./data/items.csv', headers: true, header_converters: :symbol) do |i
               description:  item[:description],
               unit_price:   item[:unit_price],
               merchant_id:  item[:merchant_id],
-              image:        '../../images/capy-photo.jpg'
+              image:        '../../images/capy-photo.jpg',
               created_at:   item[:created_at],
               updated_at:   item[:updated_at]
               )
