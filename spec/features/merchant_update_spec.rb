@@ -19,7 +19,7 @@ RSpec.describe 'Merchant update page' do
     expect(current_path).to eq("/merchants/#{@merchant_1.id}")
   end
 
-  it 'should link back to merchant show after Update button clicked' do
+  it 'should link to merchant show after Update button clicked' do
     visit "/merchants/#{@merchant_1.id}/edit"
 
     click_on "Update Merchant"

@@ -20,6 +20,11 @@ class LittleShopApp < Sinatra::Base
     redirect "/merchants/#{id}"
   end
 
+  delete '/merchants/:id' do |id|
+    Merchant.destroy(id.to_i)
+    redirect '/merchants'
+  end
+
   get '/merchants/:id' do
     @merchant = Merchant.find(params[:id])
     erb :"merchants/show"
