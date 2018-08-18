@@ -7,7 +7,7 @@ RSpec.describe 'Merchant Delete Page' do
 
     expect(page).to have_content("Beer World")
 
-    within("merchant-#{@merchant_1.id}") do
+    within("#merchant-#{@merchant_1.id}-delete") do
       click_on "Delete"
     end
 
