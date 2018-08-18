@@ -22,6 +22,13 @@ RSpec.describe 'Merchant index page' do
     click_on 'Create A New Merchant'
     expect(current_path).to eq("/merchants/new")
   end
+
+  it 'merchant name should have link to merchant new page' do
+    visit '/merchants'
+    save_and_open_page
+    click_on 'Edit'
+    expect(current_path).to eq("/merchants/@merchant_1")
+  end
   # it 'create new merchant button links to new page' do
   #   visit '/merchants'
   #   click_on
