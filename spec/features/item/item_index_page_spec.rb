@@ -1,7 +1,8 @@
 RSpec.describe 'Item index page' do
   before(:each) do
-    @item_1 = Item.create(name: "Turing Ale", description: "Beer", unit_price: 4, image: '../../images/capy-photo.jpg')
-    @item_2 = Item.create(name: "Delerium Tremens", description: "Beer", unit_price: 12, image: '../../images/capy-photo.jpg')
+    @merchant = Merchant.create(name: "Beer World")
+    @item_1 = @merchant.items.create(name: "Turing Ale", description: "Beer", unit_price: 4, image: '../../images/capy-photo.jpg')
+    @item_2 = @merchant.items.create(name: "Delerium Tremens", description: "Beer", unit_price: 12, image: '../../images/capy-photo.jpg')
   end
   it 'should show item heading' do
     visit '/items'
@@ -27,7 +28,7 @@ RSpec.describe 'Item index page' do
     page.has_xpath?(@item_2.image)
   end
 
-  xit 'item name should have link to item show page' do
+  it 'item name should have link to item show page' do
     visit '/items'
     click_on @item_1.name
     expect(current_path).to eq("/items/#{@item_1.id}")

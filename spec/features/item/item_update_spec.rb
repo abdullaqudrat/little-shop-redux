@@ -1,6 +1,8 @@
 RSpec.describe 'Item update page' do
   before(:each) do
-    @item_1 = Item.create(name: "Turing Ale", description: "Beer", unit_price: 4, image: '../../images/capy-photo.jpg')
+    @merchant_1 = Merchant.create(name: "Wine World")
+    @merchant_2 = Merchant.create(name: "Beer World")
+    @item_1 = @merchant_1.items.create(name: "Turing Ale", description: "Beer", unit_price: 4, image: '../../images/capy-photo.jpg')
   end
 
   it 'should show item name' do
@@ -9,27 +11,27 @@ RSpec.describe 'Item update page' do
   end
 
   it 'should select merchant name from drop down menu' do
-    visit "/items/new"
+    visit "/items/#{@item_1.id}/edit"
     select("Wine World", from: "merchant_dropdown")
   end
 
   it 'should fill in form with Item name' do
-    visit "/items/new"
+    visit "/items/#{@item_1.id}/edit"
     fill_in('item[name]', with: "Delerium Tremens Beer")
   end
 
   it 'should fill in form with Item description' do
-    visit "/items/new"
+    visit "/items/#{@item_1.id}/edit"
     fill_in('item[description]', with: "Pink Elephant")
   end
 
   it 'should fill in form with Item price' do
-    visit "/items/new"
+    visit "/items/#{@item_1.id}/edit"
     fill_in('item[unit_price]', with: 14)
   end
 
   it 'should fill in form with Item image path' do
-    visit "/items/new"
+    visit "/items/#{@item_1.id}/edit"
     fill_in('item[image]', with: "path_to_image")
   end
 
@@ -51,7 +53,7 @@ RSpec.describe 'Item update page' do
     visit "/items/#{@item_1.id}/edit"
 
     select("Wine World", from: "merchant_dropdown")
-    fill_in('item[name]', with: "Delerium Tremens Beer"
+    fill_in('item[name]', with: "Delerium Tremens Beer")
     fill_in('item[description]', with: "Pink Elephant")
     fill_in('item[unit_price]', with: 14)
     fill_in('item[image]', with: "path_to_image")
@@ -60,6 +62,6 @@ RSpec.describe 'Item update page' do
     expect(page).to have_content("Delerium Tremens Beer")
     expect(page).to have_content("Pink Elephant")
     expect(page).to have_content("14")
-    expect(page).to have_content("path_to_image")
+    page.has_xpath?('path_to_image')
   end
 end

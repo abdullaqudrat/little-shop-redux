@@ -32,19 +32,18 @@ RSpec.describe 'Item show page' do
 
   it 'merchant name should have link to merchant show page' do
     visit "/items/#{@item.id}"
-    save_and_open_page
     click_on @item.merchant.name
     expect(current_path).to eq("/merchants/#{@merchant.id}")
   end
 
-  xit 'edit button should have link to item edit page' do
+  it 'edit button should have link to item edit page' do
     visit "/items/#{@item.id}"
 
     click_on "Edit"
 
     expect(current_path).to eq("/items/#{@item.id}/edit")
   end
-  
+
   it 'should not show deleted item at index after Delete button clicked' do
 
     visit "/items/#{@item.id}"
