@@ -1,0 +1,13 @@
+<h1><%= @item.name %></h1>
+<form class="edit" action="/items/<%= @item.id %>/edit" method="GET">
+  <button>Edit</button>
+</form>
+<form class="delete" action="/items" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete" />
+</form>
+<h3><%= @item.name %></h3>
+<p><%= @item.unit_price %></p>
+<p><%= @item.description %></p>
+<img src="<%= @item.image %>" alt="capy-photo"/>
+<a href='/merchants/<%= @merchant.id %>'><h1><%= @merchant.name %></h1></a>
