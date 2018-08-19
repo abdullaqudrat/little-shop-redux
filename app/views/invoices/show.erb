@@ -1,0 +1,11 @@
+<h1>Invoice: <%= @invoice.id %> - <%= @invoice.status %></h2>
+<h2><%= @merchant.name %></h2>
+
+
+  <form class="edit" action="/invoices/<%= @invoice.id %>/edit" method="GET">
+    <button>Edit</button>
+  </form>
+  <form class="delete" action="/invoices/<%= @invoice.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete"/>
+  </form>

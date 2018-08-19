@@ -23,8 +23,6 @@ RSpec.describe 'Item index page' do
 
   it 'should show all item images' do
     visit '/items'
-    save_and_open_page
-
     page.has_xpath?(@item_1.image)
     page.has_xpath?(@item_2.image)
   end
