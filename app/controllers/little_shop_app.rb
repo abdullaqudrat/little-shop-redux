@@ -51,7 +51,7 @@ class LittleShopApp < Sinatra::Base
 
   post '/items' do
     Item.create(params[:item])
-    redirect '/items'
+    redirect "/items"
   end
 
   put '/items/:id' do |id|
