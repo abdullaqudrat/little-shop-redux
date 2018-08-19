@@ -1,5 +1,10 @@
 RSpec.describe Invoice do
   describe 'Validations' do
+    it "has one merchant" do
+      association = described_class.reflect_on_association(:merchant)
+      expect(association.macro).to eq :belongs_to
+    end
+
     it 'is valid with attributes' do
       invoice = Invoice.create(merchant_id: 12345, status: "pending")
 
