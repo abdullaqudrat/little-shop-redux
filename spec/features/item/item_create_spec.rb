@@ -34,12 +34,18 @@ RSpec.describe 'Item create page' do
     fill_in('item[image]', with: "path_to_image")
   end
 
-  # it 'should link back to item index after Create button clicked' do
-  #   visit "/items/new"
-  #
-  #   click_on "Create Item"
-  #   expect(current_path).to eq("/items")
-  # end
+  it 'should link back to item index after Create button clicked' do
+    visit "/items/new"
+
+    select("Beer World", from: "merchant_dropdown")
+    fill_in('item[name]', with: "Delerium Tremens Beer")
+    fill_in('item[description]', with: "Pink Elephant")
+    fill_in('item[unit_price]', with: 14)
+    fill_in('item[image]', with: "path_to_image")
+
+    click_on "Create Item"
+    expect(current_path).to eq("/items")
+  end
   #
   # it 'should link back to item index after Cancel button clicked' do
   #   visit "/items/new"

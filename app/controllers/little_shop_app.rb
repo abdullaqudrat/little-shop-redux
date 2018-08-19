@@ -50,7 +50,7 @@ class LittleShopApp < Sinatra::Base
   end
 
   post '/items' do
-    items = Item.create(params[:item])
+    Item.create(params[:item])
     redirect '/items'
   end
 
