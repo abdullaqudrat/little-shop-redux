@@ -18,6 +18,7 @@ RSpec.describe 'Invoice index page' do
 
   it 'invoice id should have link to invoice show page' do
     visit '/invoices'
+
     click_on @invoice_1.id
     expect(current_path).to eq("/invoices/#{@invoice_1.id}")
   end
@@ -25,7 +26,6 @@ RSpec.describe 'Invoice index page' do
   it 'invoice should have link to invoice edit page' do
     visit '/invoices'
     save_and_open_page
-
     within("#invoice-#{@invoice_1.id}-edit") do
       click_on "Edit"
     end
@@ -33,8 +33,9 @@ RSpec.describe 'Invoice index page' do
   end
 
   it 'should not show deleted invoice at index after Delete button clicked' do
-    visit "/merchants"
+    visit "/invoices"
     expect(page).to have_content("77473839")
+
 
     within("#invoice-#{@invoice_1.id}-delete") do
       click_on "Delete"
