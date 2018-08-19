@@ -2,7 +2,7 @@
 <form class="edit" action="/merchants/<%= @merchant.id %>/edit" method="GET">
   <button>Edit</button>
 </form>
-<form class="delete" action="/merchants/<%= merchant.id %>" method="POST">
+<form class="delete" action="/merchants/<%= @merchant.id %>" method="POST">
   <input type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete"/>
 </form>
