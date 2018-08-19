@@ -77,4 +77,9 @@ class LittleShopApp < Sinatra::Base
   end
 
   # ----Invoice Controllers---- #
+  get '/invoices' do
+    @invoices = Invoice.all
+    erb :"invoices/index"
+  end
+
 end
