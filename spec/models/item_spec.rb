@@ -1,7 +1,7 @@
 RSpec.describe Item do
   describe 'Validations' do
     it 'is valid with attributes' do
-      item = Item.create(name: "Turing Ale", description: "Beer", unit_price: 12, image: 'pic_of_beer_here')
+      item = Item.create(name: "Turing Ale", description: "Beer", unit_price: 12, image: 'pic_of_beer_here', merchant_id: 1)
 
       expect(item).to be_valid
     end

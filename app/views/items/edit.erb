@@ -1,0 +1,19 @@
+<h1>Edit <%= @item.name %></h1>
+<select id='merchant_dropdown' name='merchant_dropdown' type='text'>
+<% @merchants.each do |merchant| %>
+  <option value="<%= merchant.id %>"> <%= merchant.name %> </option>
+<% end %>
+</select>
+
+<form class="update-item" action="/items/<%= @item.id %>" method="POST">
+  <input type="hidden" name="_method" value="PUT" />
+  <input type='text' name='item[name]' placeholder='Item Title'>
+  <input type='text' name='item[description]' placeholder='Description'>
+  <input type='integer' name='item[unit_price]' placeholder='Price'>
+  <input type='text' name='item[image]' placeholder='Image URL'>
+  <input type='submit' value="Update Item">
+</form>
+
+<form class="update-item" action="/items/<%= @item.id %>" method="GET">
+  <input type='submit' value="Cancel">
+</form>
