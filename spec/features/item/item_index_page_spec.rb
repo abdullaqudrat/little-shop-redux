@@ -1,8 +1,8 @@
 RSpec.describe 'Item index page' do
   before(:each) do
     @merchant = Merchant.create(name: "Beer World")
-    @item_1 = @merchant.items.create(name: "Turing Ale", description: "Beer", unit_price: 4, image: '../../images/capy-photo.jpg')
-    @item_2 = @merchant.items.create(name: "Delerium Tremens", description: "Beer", unit_price: 12, image: '../../images/capy-photo.jpg')
+    @item_1 = @merchant.items.create(name: "Turing Ale", description: "Beer", unit_price: 4, image: '../../public/images/capy-photo.jpg')
+    @item_2 = @merchant.items.create(name: "Delerium Tremens", description: "Beer", unit_price: 12, image: '../../public/images/capy-photo.jpg')
   end
   it 'should show item heading' do
     visit '/items'
@@ -23,6 +23,7 @@ RSpec.describe 'Item index page' do
 
   it 'should show all item images' do
     visit '/items'
+    save_and_open_page
 
     page.has_xpath?(@item_1.image)
     page.has_xpath?(@item_2.image)
