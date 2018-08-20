@@ -1,1 +1,7 @@
-<h1>Invoice <%= @invoice.id %> - <%= @invoice.status %></h1>
+<h1>Invoice: <%= @invoice.id %> - <%= @invoice.status %></h1>
+
+<select id='status_dropdown' name='status_dropdown' type='text'>
+  <%= @invoices.each do |invoice| %>
+  <option value="<%= invoice.id %>"><%= invoice.status %></option>
+  <%= end %>
+</select>
