@@ -25,7 +25,7 @@ RSpec.describe 'Invoice index page' do
 
   it 'invoice should have link to invoice edit page' do
     visit '/invoices'
-    save_and_open_page
+    
     within("#invoice-#{@invoice_1.id}-edit") do
       click_on "Edit"
     end
