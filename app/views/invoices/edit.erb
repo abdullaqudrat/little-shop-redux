@@ -1,7 +1,21 @@
-<h1>Invoice: <%= @invoice.id %> - <%= @invoice.status %></h1>
+<h1>Invoice: <%= @invoice.id %> - <%= @invoice.status.capitalize %></h1>
 
-<select id='status_dropdown' name='status_dropdown' type='text'>
-  <%= @invoices.each do |invoice| %>
-  <option value="<%= invoice.id %>"><%= invoice.status %></option>
-  <%= end %>
+<select disabled id='merchant_dropdown' name='merchant_dropdown' type='text'>
+<% @merchants.each do |merchant| %>
+  <option value="<%= merchant.id %>"> <%= merchant.name %> </option>
+<% end %>
 </select>
+
+<form class="update-invoice" action="/invoices/<%= @invoice.id %>" method="POST">
+  <input type="hidden" name="_method" value="PUT" />
+  <select id='status_dropdown' name='invoice[status]' type='text'>
+    <option value="Pending">Pending</option>
+    <option value="Shipped">Shipped</option>
+    <option value="Returned">Returned</option>
+  </select>
+  <input type='submit' value="Update Invoice">
+</form>
+
+<form class="update-invoice" action="/invoices/<%= @invoice.id %>" method="GET">
+  <input type='submit' value="Cancel">
+</form>
