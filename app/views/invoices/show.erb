@@ -9,3 +9,12 @@
     <input type="hidden" name="_method" value="DELETE">
     <input type="submit" value="Delete"/>
   </form>
+
+  <% @invoice_items.each do |invoice_item| %>
+  <div class='index-instance'>
+  <a class='item-id' href='/items/<%=invoice_item.item_id%>'><p><%= invoice_item.item_id %></p></a>
+  <p class='item-name'><%= invoice_item.item.name %></p>
+  <p class='item-quantity'><%= invoice_item.quantity %></p>
+  <p class='item-unit-price'><%= invoice_item.unit_price.to_s.insert(-3, ".") %></p>
+</div>
+<% end %>

@@ -35,7 +35,7 @@ CSV.foreach('./data/invoices.csv', headers: true, header_converters: :symbol) do
 end
 
 CSV.foreach('./data/invoice_items.csv', headers: true, header_converters: :symbol) do |invoice_item|
-  InvoiceItem.create(id:           invoice_item[:id],
+  InvoiceItem.create( id:           invoice_item[:id],
                       item_id:     invoice_item[:item_id],
                       invoice_id:  invoice_item[:invoice_id],
                       quantity:    invoice_item[:quantity],
