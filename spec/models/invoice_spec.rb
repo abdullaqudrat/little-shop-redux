@@ -4,6 +4,14 @@ RSpec.describe Invoice do
       association = described_class.reflect_on_association(:merchant)
       expect(association.macro).to eq :belongs_to
     end
+    it "has many invoice items" do
+      association = described_class.reflect_on_association(:invoice_items)
+      expect(association.macro).to eq :has_many
+    end
+    it "has many items" do
+      association = described_class.reflect_on_association(:items)
+      expect(association.macro).to eq :has_many
+    end
 
     it 'is valid with attributes' do
       invoice = Invoice.create(merchant_id: 12345, status: "pending")
