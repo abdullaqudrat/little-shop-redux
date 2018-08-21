@@ -1,10 +1,10 @@
 RSpec.describe Merchant do
   before(:each) do
     @merchant_1 = Merchant.create(name: 'Beer World')
-    @item_1 = @merchant_1.items.create(name: "Turing Ale", description: "Beer", unit_price: 4, image: '../../public/images/capy-photo.jpg')
-    @item_2 = @merchant_1.items.create(name: "Delerium Tremens", description: "Beer", unit_price: 12, image: '../../public/images/capy-photo.jpg')
+    @item_1 = @merchant_1.items.create(name: "Turing Ale", description: "Beer", unit_price: 5, image: '../../public/images/capy-photo.jpg')
+    @item_2 = @merchant_1.items.create(name: "Delerium Tremens", description: "Beer", unit_price: 11, image: '../../public/images/capy-photo.jpg')
     @merchant_2 = Merchant.create(name: 'Wine World')
-    @item_3 = @merchant_2.items.create(name: "Turing Ale", description: "Beer", unit_price: 4, image: '../../public/images/capy-photo.jpg')
+    @item_3 = @merchant_2.items.create(name: "Turing Ale", description: "Beer", unit_price: 12, image: '../../public/images/capy-photo.jpg')
   end
   describe 'Validations' do
     it "has many items" do
@@ -30,12 +30,7 @@ RSpec.describe Merchant do
   end
 
   describe 'Class Methods' do
-    describe 'most_items method' do
-      it 'returns the merchant with most items' do
 
-        expect(Merchant.with_most_items).to eq(@merchant_1.name)
-      end
-    end
     describe 'total_item_count method' do
       it 'returns the total item count for merchant' do
 
@@ -52,6 +47,12 @@ RSpec.describe Merchant do
       it 'returns the total price of all items for merchant' do
 
         expect(@merchant_1.total_price_of_all_items).to eq(16)
+      end
+    end
+    describe 'with_most_items method' do
+      it 'returns the merchant with highest price item' do
+
+        expect(Merchant.with_highest_price_item).to eq(@merchant_2.name)
       end
     end
   end

@@ -112,4 +112,10 @@ class LittleShopApp < Sinatra::Base
     @invoices = Invoice.all
     erb :"invoices/edit"
   end
+
+  helpers do
+    def number_to_currency(number)
+      ('$%.2f' % number).to_s
+    end
+  end
 end
