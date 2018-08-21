@@ -12,4 +12,12 @@ class Item < ActiveRecord::Base
   def self.avg_price
     Item.average(:unit_price)
   end
+
+  def self.newest_item
+    Item.order(:created_at).last
+  end
+
+  def self.oldest_item
+    Item.order(:created_at).first
+  end
 end
