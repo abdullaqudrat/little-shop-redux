@@ -16,6 +16,8 @@ RSpec.describe 'Invoice Dashboard Page' do
     save_and_open_page
 
     expect(page).to have_content("Pending: #{Invoice.status_percentage("pending")}%")
+    expect(page).to have_content("Shipped: #{Invoice.status_percentage("shipped")}%")
+    expect(page).to have_content("Returned: #{Invoice.status_percentage("returned")}%")
   end
 
 end
