@@ -33,25 +33,25 @@ RSpec.describe Merchant do
     describe 'most_items method' do
       it 'returns the merchant with most items' do
 
-        expect(Merchant.with_most_items).to eq(@merchant_1)
+        expect(Merchant.with_most_items).to eq(@merchant_1.name)
       end
     end
     describe 'total_item_count method' do
       it 'returns the total item count for merchant' do
 
-        expect(Merchant.total_item_count(@merchant_1.id)).to eq(2)
+        expect(@merchant_1.total_item_count).to eq(2)
       end
     end
     describe 'average_item_price method' do
       it 'returns the average item price for merchant' do
 
-        expect(Merchant.average_item_price(@merchant_1.id)).to eq(8)
+        expect(@merchant_1.average_item_price).to eq(8)
       end
     end
     describe 'total_price_of_all_items method' do
       it 'returns the total price of all items for merchant' do
 
-        expect(Merchant.total_price_of_all_items(@merchant_1.id)).to eq(16)
+        expect(@merchant_1.total_price_of_all_items).to eq(16)
       end
     end
   end

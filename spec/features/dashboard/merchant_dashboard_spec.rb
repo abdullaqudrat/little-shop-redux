@@ -11,7 +11,7 @@ RSpec.describe 'Merchants Dashboard page' do
       save_and_open_page
       expect(page).to have_content("Merchants Dashboard")
     end
-    xit 'should show merchant with most items' do
+    it 'should show merchant with most items' do
       visit '/merchants-dashboard'
       expect(page).to have_content("Merchant With Most Items: #{Merchant.with_most_items}")
     end
