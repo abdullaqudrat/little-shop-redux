@@ -38,4 +38,35 @@ RSpec.describe Item do
       expect(item).to_not be_valid
     end
   end
+
+  describe 'Class Methods' do
+    before(:each) do
+      @item_1 = Item.create(name: "Zanti Red", description: "Red Wine", unit_price: 7, image: '../../public/images/capy-photo.jpg')
+      @item_2 = Item.create(name: "Espinosa White", description: "White Wine", unit_price: 11, image: '../../public/images/capy-photo.jpg')
+      @item_3 = Item.create(name: "McMahon Rose", description: "Rose Wine", unit_price: 15, image: '../../public/images/capy-photo.jpg')
+    end
+    describe '.total_count' do
+      it 'returns total item count' do
+        expect(Item.total_count).to eq(3)
+      end
+    end
+
+    describe '.avg_price' do
+      it 'calculates price of all items' do
+        expect(Item.avg_price).to eq(11)
+      end
+    end
+
+    describe '.newest_item' do
+      it 'calculated newest item by age' do
+        expect(Item.newest_item).to eq(@item_3.name)
+      end
+    end
+
+    describe '.oldest_item' do
+      it 'calculated oldest item by age' do
+        expect(Item.oldest_item).to eq(@item_1.name)
+      end
+    end
+  end
 end
