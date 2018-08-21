@@ -1,6 +1,13 @@
 class LittleShopApp < Sinatra::Base
   set :method_override, true
 
+  # ----Dashboard Controllers---- #
+
+  get '/invoices-dashboard' do
+    @invoices = Invoice.all
+    erb :"dashboards/invoices-dashboard"
+  end
+
   # ----Merchant Controllers---- #
 
   get '/merchants' do
