@@ -6,6 +6,11 @@ class LittleShopApp < Sinatra::Base
     erb :"dashboards/items-dashboard"
   end
 
+  get '/invoices-dashboard' do
+    @invoices = Invoice.all
+    erb :"dashboards/invoices-dashboard"
+  end
+  
   # ----Merchant Controllers---- #
   get '/merchants' do
     @merchants = Merchant.all

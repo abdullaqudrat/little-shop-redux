@@ -8,7 +8,7 @@ class Invoice < ActiveRecord::Base
 
   def self.status_percentage(status)
     invoice_status = Invoice.where(status: status).count
-    (invoice_status.to_f / Invoice.count) * 100
+    ((invoice_status.to_f / Invoice.count) * 100).to_i
   end
 
   def self.highest_unit_price

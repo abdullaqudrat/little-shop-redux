@@ -17,9 +17,9 @@ RSpec.describe Invoice do
         percentage_returned = Invoice.status_percentage("returned")
         percentage_pending = Invoice.status_percentage("pending")
 
-        expect(percentage_shipped).to eq(25.0)
-        expect(percentage_returned).to eq(25.0)
-        expect(percentage_pending).to eq(50.0)
+        expect(percentage_shipped).to eq(25)
+        expect(percentage_returned).to eq(25)
+        expect(percentage_pending).to eq(50)
       end
     end
 
