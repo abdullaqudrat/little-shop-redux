@@ -2,6 +2,12 @@ class LittleShopApp < Sinatra::Base
   set :method_override, true
 
   # ----Dashboard Controllers---- #
+
+  get '/merchants-dashboard' do
+    @merchants = Merchant.all
+    erb :"dashboards/merchants_dashboard"
+  end
+
   get '/items-dashboard' do
     @total_count = Item.total_count
     @avg_price = Item.avg_price
@@ -123,5 +129,11 @@ class LittleShopApp < Sinatra::Base
     @merchants = Merchant.all
     @invoices = Invoice.all
     erb :"invoices/edit"
+  end
+
+  helpers do
+    def number_to_currency(number)
+      ('$%.2f' % number).to_s
+    end
   end
 end

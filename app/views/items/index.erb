@@ -7,5 +7,5 @@
   <% @items.each do |i| %>
     <img src="<%= i.image %>" alt="<%= i.name %>-image" height="120" width="110">
     <h2><a href="/items/<%= i.id %>"><%= i.name %></a></h2>
-    <p><%= i.name %> price: <%= i.unit_price %></p>
+    <p><%= i.name %> price: <%= number_to_currency((i.unit_price)/100.to_f) %></p>
   <% end %>
