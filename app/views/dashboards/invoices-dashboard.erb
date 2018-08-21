@@ -1,6 +1,6 @@
 <h1>Invoices Dashboard</h1>
 
-<section id="status-percentage">
+<section id="status-percentages">
   <h2>Status Percentages</h2>
   <p>Pending: <%= @pending %>%</p>
   <p>Shipped: <%= @shipped %>%</p>
@@ -8,3 +8,17 @@
 </section>
 
 <section id="unit-prices">
+  <h3>Unit Prices</h3>
+  <h4> Highest</h4>
+  <p>Invoice: <%= @highest_price %></p>
+  <h4>Lowest</h4>
+  <p>Invoice: <%= @lowest_price %></p>
+</section>
+
+<section id="quantity">
+  <h3>Quantity</h3>
+  <h4> Highest</h4>
+  <p>Invoice: <%= @highest_quantity %></p>
+  <h4>Lowest</h4>
+  <p>Invoice: <%= @lowest_quantity %></p>
+</section>
