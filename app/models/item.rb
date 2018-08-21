@@ -14,10 +14,10 @@ class Item < ActiveRecord::Base
   end
 
   def self.newest_item
-    Item.order(:created_at).last
+    Item.order(:created_at).last.name
   end
 
   def self.oldest_item
-    Item.order(:created_at).first
+    Item.order(:created_at).first.name
   end
 end

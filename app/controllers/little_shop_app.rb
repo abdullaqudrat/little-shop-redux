@@ -3,7 +3,6 @@ class LittleShopApp < Sinatra::Base
 
   # ----Dashboard Controllers---- #
   get '/items-dashboard' do
-    @items = Item.all
     erb :"dashboards/items-dashboard"
   end
 

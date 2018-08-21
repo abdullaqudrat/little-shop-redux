@@ -20,4 +20,14 @@ RSpec.describe 'Item Dashboard Page' do
     expect(page).to have_content(Item.avg_price)
   end
 
+  it 'should show newest item by age' do
+    visit '/items-dashboard'
+    expect(page).to have_content(Item.newest_item)
+  end
+
+  it 'should show oldest item by age' do
+    visit '/items-dashboard'
+    expect(page).to have_content(Item.oldest_item)
+  end
+
 end
