@@ -22,6 +22,7 @@ RSpec.describe 'Item Dashboard Page' do
 
   it 'should show newest item by age' do
     visit '/items-dashboard'
+    save_and_open_page
     expect(page).to have_content(Item.newest_item)
   end
 
