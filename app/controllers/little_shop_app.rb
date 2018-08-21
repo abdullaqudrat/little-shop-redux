@@ -8,8 +8,27 @@ class LittleShopApp < Sinatra::Base
     erb :"dashboards/merchants_dashboard"
   end
 
-  # ----Merchant Controllers---- #
+  get '/items-dashboard' do
+    @total_count = Item.total_count
+    @avg_price = Item.avg_price
+    @newest_item = Item.newest_item
+    @oldest_item = Item.oldest_item
+    erb :"dashboards/items-dashboard"
+  end
 
+  get '/invoices-dashboard' do
+    @invoices = Invoice.all
+    @pending = Invoice.status_percentage('pending')
+    @shipped = Invoice.status_percentage('shipped')
+    @returned = Invoice.status_percentage('returned')
+    @highest_price = Invoice.highest_unit_price
+    @lowest_price = Invoice.lowest_unit_price
+    @highest_quantity = Invoice.highest_quantity
+    @lowest_quantity = Invoice.lowest_quantity
+    erb :"dashboards/invoices-dashboard"
+  end
+
+  # ----Merchant Controllers---- #
   get '/merchants' do
     @merchants = Merchant.all
     erb :"merchants/index"
@@ -45,7 +64,6 @@ class LittleShopApp < Sinatra::Base
   end
 
   # ----Item Controllers---- #
-
   get '/items' do
     @items = Item.all
     erb :"items/index"
