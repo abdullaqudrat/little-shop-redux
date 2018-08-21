@@ -1,24 +1,33 @@
-<h1>Invoices Dashboard</h1>
-
-<section id="status-percentages">
-  <h2>Status Percentages</h2>
-  <p>Pending: <%= @pending %>%</p>
-  <p>Shipped: <%= @shipped %>%</p>
-  <p>Returned: <%= @returned %>%</p>
-</section>
-
-<section id="unit-prices">
-  <h3>Unit Prices</h3>
-  <h4> Highest</h4>
-  <p>Invoice: <%= @highest_price %></p>
-  <h4>Lowest</h4>
-  <p>Invoice: <%= @lowest_price %></p>
-</section>
-
-<section id="quantity">
-  <h3>Quantity</h3>
-  <h4> Highest</h4>
-  <p>Invoice: <%= @highest_quantity %></p>
-  <h4>Lowest</h4>
-  <p>Invoice: <%= @lowest_quantity %></p>
-</section>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 id="jumbo" class="display-4 text-center">Invoices Dashboard</h1>
+  </div>
+</div>
+<div class="card-deck">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title text-center" id="h5">Status Percentages</h5>
+      <p class="card-text">Pending: <%= @pending %>%</p>
+      <p class="card-text">Shipped: <%= @shipped %>%</p>
+      <p class="card-text">Returned: <%= @returned %>%</p>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title text-center" id="h5">Unit Prices</h5>
+      <h6 class="card-subtitle mb-2 text-muted"><u>Highest</u></h6>
+      <p class="card-text">Invoice: <a href="/invoices/<%= @highest_price %>"><%= @highest_price %> </a></p>
+      <h6 class="card-subtitle mb-2 text-muted"><u>Lowest</u></h6>
+      <p class="card-text">Invoice: <a href="/invoices/<%= @lowest_price %>"><%= @lowest_price %> </a></p>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title text-center" id="h5">Quantity</h5>
+      <h6 class="card-subtitle mb-2 text-muted"><u>Highest</u></h6>
+      <p class="card-text">Invoice: <a href="/invoices/<%= @highest_quantity %>"><%= @highest_quantity %> </a></p>
+      <h6 class="card-subtitle mb-2 text-muted"><u>Lowest</u></h6>
+      <p class="card-text">Invoice: <a href="/invoices/<%= @lowest_quantity %>"><%= @lowest_quantity %> </a></p>
+    </div>
+  </div>
+</div>

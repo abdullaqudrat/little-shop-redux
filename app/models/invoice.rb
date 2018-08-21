@@ -22,12 +22,12 @@ class Invoice < ActiveRecord::Base
   end
 
   def self.highest_quantity
-    highest_item = InvoiceItem.maximum(:quantity)
-    InvoiceItem.where(quantity: highest_item).first.invoice_id
+    grouped = InvoiceItem.group(:invoice_id).sum(:quantity)
+    grouped.sort_by(&:last).last[0]
   end
 
   def self.lowest_quantity
-    lowest_item = InvoiceItem.minimum(:quantity)
-    InvoiceItem.where(quantity: lowest_item).first.invoice_id
+    grouped = InvoiceItem.group(:invoice_id).sum(:quantity)
+    grouped.sort_by(&:last).first[0]
   end
 end
