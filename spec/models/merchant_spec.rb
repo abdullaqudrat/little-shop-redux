@@ -1,10 +1,10 @@
 RSpec.describe Merchant do
   before(:each) do
     @merchant_1 = Merchant.create(name: 'Beer World')
-    @item_1 = @merchant_1.items.create(name: "Turing Ale", description: "Beer", unit_price: 5, image: '../../public/images/capy-photo.jpg')
-    @item_2 = @merchant_1.items.create(name: "Delerium Tremens", description: "Beer", unit_price: 11, image: '../../public/images/capy-photo.jpg')
+    @item_1 = @merchant_1.items.create(name: "Turing Ale", description: "Beer", unit_price: 500, image: '../../public/images/capy-photo.jpg')
+    @item_2 = @merchant_1.items.create(name: "Delerium Tremens", description: "Beer", unit_price: 1100, image: '../../public/images/capy-photo.jpg')
     @merchant_2 = Merchant.create(name: 'Wine World')
-    @item_3 = @merchant_2.items.create(name: "Turing Ale", description: "Beer", unit_price: 12, image: '../../public/images/capy-photo.jpg')
+    @item_3 = @merchant_2.items.create(name: "Turing Ale", description: "Beer", unit_price: 1200, image: '../../public/images/capy-photo.jpg')
   end
   describe 'Validations' do
     it "has many items" do
