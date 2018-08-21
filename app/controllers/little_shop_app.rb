@@ -86,7 +86,7 @@ class LittleShopApp < Sinatra::Base
   end
 
   put '/invoices/:id' do |id|
-    Invoices.update(id.to_i, params[:invoice])
+    Invoice.update(id.to_i, params[:invoice])
     redirect "/invoices/#{id}"
   end
 
@@ -98,6 +98,7 @@ class LittleShopApp < Sinatra::Base
   get '/invoices/:id' do
     @invoice = Invoice.find(params[:id])
     @merchant = @invoice.merchant
+    @invoice_items = InvoiceItem.where(invoice_id: @invoice.id)
     erb :"invoices/show"
   end
 
@@ -107,5 +108,4 @@ class LittleShopApp < Sinatra::Base
     @invoices = Invoice.all
     erb :"invoices/edit"
   end
-
 end
