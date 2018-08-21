@@ -1,8 +1,13 @@
 class LittleShopApp < Sinatra::Base
   set :method_override, true
 
-  # ----Merchant Controllers---- #
+  # ----Dashboard Controllers---- #
+  get '/items-dashboard' do
+    @items = Item.all
+    erb :"dashboards/items-dashboard"
+  end
 
+  # ----Merchant Controllers---- #
   get '/merchants' do
     @merchants = Merchant.all
     erb :"merchants/index"
@@ -38,7 +43,6 @@ class LittleShopApp < Sinatra::Base
   end
 
   # ----Item Controllers---- #
-
   get '/items' do
     @items = Item.all
     erb :"items/index"
@@ -101,9 +105,8 @@ class LittleShopApp < Sinatra::Base
   get '/invoices/:id/edit' do
     @invoice = Invoice.find(params[:id])
     @merchants = Merchant.all
+    @invoices = Invoice.all
     erb :"invoices/edit"
   end
-
-
 
 end
