@@ -1,11 +1,24 @@
-<h1>Items</h1>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 id="jumbo" class="display-4 text-center">Items</h1>
+  </div>
+</div>
 
   <form action="/items/new">
     <input type="submit" value="Create A New Item">
   </form>
 
-  <% @items.each do |i| %>
-    <img src="<%= i.image %>" alt="<%= i.name %>-image" height="120" width="110">
-    <h2><a href="/items/<%= i.id %>"><%= i.name %></a></h2>
-    <p><%= i.name %> price: <%= number_to_currency((i.unit_price)/100.to_f) %></p>
-  <% end %>
+<div class="container">
+  <div class="row">
+    <% @items.each do |i| %>
+          <div class="card">
+            <img class="card-img-top" src="images/capy-photo.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title"><a href="/items/<%= i.id %>"><%= i.name %> </a></h5>
+              <p class="card-text"><%= number_to_currency((i.unit_price)/100.to_f) %></p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+    <% end %>
+  </div>
+</div>

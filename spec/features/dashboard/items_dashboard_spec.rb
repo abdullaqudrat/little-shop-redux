@@ -22,12 +22,12 @@ RSpec.describe 'Item Dashboard Page' do
 
   it 'should show newest item by age' do
     visit '/items-dashboard'
-    expect(page).to have_content(Item.newest_item)
+    expect(page).to have_content(Item.newest_item.name)
   end
 
   it 'should show oldest item by age' do
     visit '/items-dashboard'
-    expect(page).to have_content(Item.oldest_item)
+    expect(page).to have_content(Item.oldest_item.name)
   end
 
 end

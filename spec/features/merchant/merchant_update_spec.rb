@@ -5,7 +5,7 @@ RSpec.describe 'Merchant update page' do
 
   it 'should show merchant name' do
     visit "/merchants/#{@merchant_1.id}/edit"
-    expect(page).to have_content("Edit #{@merchant_1.name}")
+    expect(page).to have_content("Edit: #{@merchant_1.name}")
   end
 
   it 'should fill in form with Merchant name' do

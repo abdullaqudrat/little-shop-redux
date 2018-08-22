@@ -59,13 +59,13 @@ RSpec.describe Item do
 
     describe '.newest_item' do
       it 'calculated newest item by age' do
-        expect(Item.newest_item).to eq(@item_3.name)
+        expect(Item.newest_item).to eq(@item_3)
       end
     end
 
     describe '.oldest_item' do
       it 'calculated oldest item by age' do
-        expect(Item.oldest_item).to eq(@item_1.name)
+        expect(Item.oldest_item).to eq(@item_1)
       end
     end
   end

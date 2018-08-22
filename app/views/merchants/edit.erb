@@ -1,9 +1,21 @@
-<h1>Edit <%= @merchant.name %></h1>
-<form class="update-merchant" action="/merchants/<%= @merchant.id %>" method="POST">
-  <input type="hidden" name="_method" value="PUT" />
-  <input type='text' name='merchant[name]' placeholder='Merchant Name'>
-  <input type='submit' value="Update Merchant">
-</form>
-<form class="update-merchant" action="/merchants/<%= @merchant.id %>" method="GET">
-  <input type='submit' value="Cancel">
-</form>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+      <h1 id="jumbo" class="display-4 text-center">Edit: <%= @merchant.name %></h1>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <form class="update-merchant" action="/merchants/<%= @merchant.id %>" method="POST">
+      <div class="form-group">
+        <input type="hidden" name="_method" value="PUT" />
+        <label for="exampleInputEmail1">Merchant Name</label>
+        <input type='text' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name='merchant[name]' placeholder="<%= @merchant.name %>">
+      </div>
+      <input type='submit' class="btn btn-primary" value="Update Merchant">
+    </form>
+    <p><form class="update-merchant" action="/merchants/<%= @merchant.id %>" method="GET">
+      <input type='submit' class="btn btn-secondary btn-sm" value="Cancel">
+    </form></p>
+  </div>
+</div>

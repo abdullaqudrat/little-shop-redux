@@ -1,12 +1,36 @@
-<h1>Invoices</h1>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <a href="/invoices-dashboard">Dashboard</a>
+    <h1 id="jumbo" class="display-4 text-center">Invoices</h1>
+  </div>
+</div>
 
-  <% @invoices.each do |i| %>
-    <h2><a href="/invoices/<%= i.id %>"><%= i.id %></a></h2>
-    <form id="invoice-<%= i.id %>-edit" class="edit" action="/invoices/<%= i.id %>/edit" method="GET">
-      <button>Edit</button>
-    </form>
-    <form id="invoice-<%= i.id %>-delete" class="delete" action="/invoices/<%= i.id %>" method="POST">
-      <input type="hidden" name="_method" value="DELETE">
-      <input type="submit" value="Delete" />
-    </form>
-  <% end %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Invoice ID</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @invoices.each do |i| %>
+    <tr>
+      <td>
+        <a href="/invoices/<%= i.id %>"><%= i.id %></a>
+      </td>
+      <td class="table-fit">
+        <form id="invoice-<%= i.id %>-edit" action="/invoices/<%= i.id %>/edit" method="GET">
+          <input type="submit" value="Edit">
+        </form>
+      </td>
+      <td class="table-fit">
+        <form id="invoice-<%= i.id %>-delete" action="/invoices/<%= i.id %>" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" value="Delete">
+        </form>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

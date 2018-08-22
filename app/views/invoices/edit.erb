@@ -1,21 +1,69 @@
-<h1>Invoice: <%= @invoice.id %> - <%= @invoice.status.capitalize %></h1>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4 text-center">Invoice: <%= @invoice.id %> - <%= @invoice.status.capitalize %></h1>
+  </div>
+</div>
 
-<select disabled id='merchant_dropdown' name='merchant_dropdown' type='text'>
-<% @merchants.each do |merchant| %>
-  <option value="<%= merchant.id %>"> <%= merchant.name %> </option>
-<% end %>
-</select>
-
-<form class="update-invoice" action="/invoices/<%= @invoice.id %>" method="POST">
+<!-- <form class="update-invoice" action="/invoices/<%= @invoice.id %>" method="POST">
   <input type="hidden" name="_method" value="PUT" />
+  <select disabled id='merchant_dropdown' name='merchant_dropdown' type='text'>
+  <% @merchants.each do |merchant| %>
+    <option value="<%= merchant.id %>"> <%= merchant.name %> </option>
+  <% end %>
+  </select>
   <select id='status_dropdown' name='invoice[status]' type='text'>
     <option value="Pending">Pending</option>
     <option value="Shipped">Shipped</option>
     <option value="Returned">Returned</option>
   </select>
   <input type='submit' value="Update Invoice">
-</form>
+  <form class="update-invoice" action="/invoices/<%= @invoice.id %>" method="GET">
+    <input type='submit' value="Cancel">
+  </form>
+</form> -->
 
-<form class="update-invoice" action="/invoices/<%= @invoice.id %>" method="GET">
-  <input type='submit' value="Cancel">
-</form>
+<div class="card">
+  <div class="card-body">
+    <form class="update-invoice" action="/invoices/<%= @invoice.id %>" method="POST">
+      <div class="form-group">
+        <input type="hidden" name="_method" value="PUT" />
+        <label for="exampleInputEmail1">Merchant Name</label>
+        <p><select disabled class="form-control" name='merchant_dropdown' type='text'>
+        <% @merchants.each do |merchant| %>
+          <option value="<%= merchant.id %>"> <%= merchant.name %> </option>
+        <% end %>
+      </select></p>
+        <p><select class="form-control" id='status_dropdown' name='invoice[status]' type='text'>
+          <option value="Pending">Pending</option>
+          <option value="Shipped">Shipped</option>
+          <option value="Returned">Returned</option>
+        </select></p>
+      </div>
+      <input type='submit' class="btn btn-primary" value="Update Invoice">
+    </form>
+    <p><form class="update-invoice" action="/invoices/<%= @invoice.id %>" method="GET">
+      <input type='submit' class="btn btn-secondary btn-sm" value="Cancel">
+    </form></p>
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Item ID</th>
+      <th scope="col">Item Title</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Unit Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @invoice_items.each do |invoice_item| %>
+    <tr>
+      <td><a href='/items/<%=invoice_item.item_id%>'><%= invoice_item.item_id %></a></td>
+      <td><%= invoice_item.item.name %></td>
+      <td><%= invoice_item.quantity %></td>
+      <td><%= number_to_currency((invoice_item.unit_price)/100.to_f) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

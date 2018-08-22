@@ -1,4 +1,8 @@
-<h1>Edit <%= @item.name %></h1>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 id="jumbo" class="display-4 text-center">Edit Item: <%= @item.name %></h1>
+  </div>
+</div>
 
 <form class="update-item" action="/items/<%= @item.id %>" method="POST">
   <input type="hidden" name="_method" value="PUT" />
@@ -11,9 +15,9 @@
   <input type='text' name='item[description]' placeholder='Description'>
   <input type='integer' name='item[unit_price]' placeholder='Price'>
   <input type='text' name='item[image]' placeholder='Image URL'>
-  <input type='submit' value="Update Item">
+  <input type='submit' class="btn btn-primary btn-lg" value="Update Item">
 </form>
 
 <form class="update-item" action="/items/<%= @item.id %>" method="GET">
-  <input type='submit' value="Cancel">
+  <input type='submit' class="btn btn-secondary btn-sm" value="Cancel">
 </form>
