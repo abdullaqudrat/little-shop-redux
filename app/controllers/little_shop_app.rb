@@ -128,6 +128,7 @@ class LittleShopApp < Sinatra::Base
     @invoice = Invoice.find(params[:id])
     @merchants = Merchant.all
     @invoices = Invoice.all
+    @invoice_items = InvoiceItem.where(invoice_id: @invoice.id)
     erb :"invoices/edit"
   end
 
