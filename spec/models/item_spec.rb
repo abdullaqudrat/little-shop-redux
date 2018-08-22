@@ -41,9 +41,9 @@ RSpec.describe Item do
 
   describe 'Class Methods' do
     before(:each) do
-      @item_1 = Item.create(name: "Zanti Red", description: "Red Wine", unit_price: 7, image: '../../public/images/capy-photo.jpg')
-      @item_2 = Item.create(name: "Espinosa White", description: "White Wine", unit_price: 11, image: '../../public/images/capy-photo.jpg')
-      @item_3 = Item.create(name: "McMahon Rose", description: "Rose Wine", unit_price: 15, image: '../../public/images/capy-photo.jpg')
+      @item_1 = Item.create(name: "Zanti Red", description: "Red Wine", unit_price: 700, image: '../../public/images/capy-photo.jpg')
+      @item_2 = Item.create(name: "Espinosa White", description: "White Wine", unit_price: 1100, image: '../../public/images/capy-photo.jpg')
+      @item_3 = Item.create(name: "McMahon Rose", description: "Rose Wine", unit_price: 1500, image: '../../public/images/capy-photo.jpg')
     end
     describe '.total_count' do
       it 'returns total item count' do
