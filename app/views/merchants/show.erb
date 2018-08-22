@@ -1,8 +1,27 @@
-<h1><%= @merchant.name %></h1>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 id="jumbo" class="display-4 text-center">Merchant: <%= @merchant.name %></h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @merchant.items.each do |i| %>
+          <div class="card">
+            <img class="card-img-top" src="/images/capy-photo.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title"><a href="items/<%= i.id %>"><%= i.name %> </a></h5>
+              <p class="card-text"><%= number_to_currency((i.unit_price)/100.to_f) %></p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+    <% end %>
+  </div>
+
 <form class="edit" action="/merchants/<%= @merchant.id %>/edit" method="GET">
-  <button>Edit</button>
+  <button class="btn btn-primary btn-lg">Edit</button>
 </form>
 <form class="delete" action="/merchants/<%= @merchant.id %>" method="POST">
   <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete"/>
+  <input type="submit" class="btn btn-secondary btn-sm" value="Delete"/>
 </form>
