@@ -7,7 +7,7 @@ RSpec.describe 'Item update page' do
 
   it 'should show item name' do
     visit "/items/#{@item_1.id}/edit"
-    expect(page).to have_content("Edit #{@item_1.name}")
+    expect(page).to have_content("Edit Item: #{@item_1.name}")
   end
 
   it 'should select merchant name from drop down menu' do
