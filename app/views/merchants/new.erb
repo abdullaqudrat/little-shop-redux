@@ -1,8 +1,20 @@
-<h1>Create New Merchant</h1>
-<form class="new-merchant" action="/merchants" method="POST">
-  <input type='text' name='merchant[name]' placeholder='Merchant Name'>
-  <input type='submit' value="Create Merchant">
-</form>
-<form class="new-merchant" action="/merchants" method="GET">
-<input type='submit' value="Cancel">
-</form>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+      <h1 id="jumbo" class="display-4 text-center">Create New Merchant</h1>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <form class="new-merchant" action="/merchants" method="POST">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Merchant Name</label>
+        <input type='text' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name='merchant[name]' placeholder='New Merchant Name'>
+      </div>
+      <input type='submit' class="btn btn-primary" value="Create Merchant">
+    </form>
+    <p><form class="create-merchant" action="/merchants" method="GET">
+      <input type='submit' class="btn btn-secondary btn-sm" value="Cancel">
+    </form></p>
+  </div>
+</div>
