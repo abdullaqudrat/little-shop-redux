@@ -1,13 +1,17 @@
-<h1><%= @item.name %></h1>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 id="jumbo" class="display-4 text-center">Item: <%= @item.name %></h1>
+  </div>
+</div>
+
 <form class="edit" action="/items/<%= @item.id %>/edit" method="GET">
-  <button>Edit</button>
+  <button class="btn btn-primary btn-lg">Edit</button>
 </form>
 <form class="delete" action="/items/<%= @item.id %>" method="POST">
   <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete" />
+  <input type="submit" class="btn btn-secondary btn-sm" value="Delete" />
 </form>
-<h3><%= @item.name %></h3>
 <p><%= @item.unit_price %></p>
 <p><%= @item.description %></p>
-<img src="<%= @item.image %>" alt="<%= @item.name %>-image">
-<a href='/merchants/<%= @merchant.id %>'><h1><%= @merchant.name %></h1></a>
+<img src= "<%= @item.image  %>" alt="<%= @item.name %>-image">
+<a href='/merchants/<%= @merchant.id %>'><h2>Merchant: <%= @merchant.name %></h2></a>
