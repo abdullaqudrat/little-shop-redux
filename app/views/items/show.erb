@@ -13,5 +13,5 @@
 </form>
 <p><%= number_to_currency((@item.unit_price)/100.to_f) %></p>
 <p><%= @item.description %></p>
-<img src= "<%= @item.image  %>" alt="<%= @item.name %>-image">
+<img src= "/images/capy-photo.jpg" alt="<%= @item.name %>-image">
 <a href='/merchants/<%= @merchant.id %>'><h2>Merchant: <%= @merchant.name %></h2></a>

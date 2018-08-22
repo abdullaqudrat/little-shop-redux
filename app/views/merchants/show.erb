@@ -1,8 +1,13 @@
-<h1><%= @merchant.name %></h1>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 id="jumbo" class="display-4 text-center">Merchant: <%= @merchant.name %></h1>
+  </div>
+</div>
+
 <form class="edit" action="/merchants/<%= @merchant.id %>/edit" method="GET">
-  <button>Edit</button>
+  <button class="btn btn-primary btn-lg">Edit</button>
 </form>
 <form class="delete" action="/merchants/<%= @merchant.id %>" method="POST">
   <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete"/>
+  <input type="submit" class="btn btn-secondary btn-sm" value="Delete"/>
 </form>
