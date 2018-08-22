@@ -1,20 +1,35 @@
-<h1>Invoice: <%= @invoice.id %> - <%= @invoice.status.capitalize %></h2>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 id="jumbo" class="display-4 text-center">Invoice: <%= @invoice.id %> - <%= @invoice.status.capitalize %></h1>
+    <form class="edit" action="/invoices/<%= @invoice.id %>/edit" method="GET">
+      <button>Edit</button>
+    </form>
+    <form class="delete" action="/invoices/<%= @invoice.id %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Delete"/>
+    </form>
+  </div>
+</div>
+
 <a href='/merchants/<%= @merchant.id %>'><h2><%= @merchant.name %></h2></a>
 
-
-  <form class="edit" action="/invoices/<%= @invoice.id %>/edit" method="GET">
-    <button>Edit</button>
-  </form>
-  <form class="delete" action="/invoices/<%= @invoice.id %>" method="POST">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Delete"/>
-  </form>
-
-  <% @invoice_items.each do |invoice_item| %>
-  <div class='invoice_items'>
-  <a href='/items/<%=invoice_item.item_id%>'><p><%= invoice_item.item_id %></p></a>
-  <p><%= invoice_item.item.name %></p>
-  <p><%= invoice_item.quantity %></p>
-  <p><%= number_to_currency((invoice_item.unit_price)/100.to_f) %></p>
-</div>
-<% end %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Item ID</th>
+      <th scope="col">Item Title</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Unit Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @invoice_items.each do |invoice_item| %>
+    <tr>
+      <td><a href='/items/<%=invoice_item.item_id%>'><%= invoice_item.item_id %></a></td>
+      <td><%= invoice_item.item.name %></td>
+      <td><%= invoice_item.quantity %></td>
+      <td><%= number_to_currency((invoice_item.unit_price)/100.to_f) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
