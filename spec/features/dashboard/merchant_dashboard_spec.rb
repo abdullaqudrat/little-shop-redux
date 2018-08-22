@@ -8,7 +8,6 @@ RSpec.describe 'Merchants Dashboard page' do
   end
     it 'should show merchant dashboard heading' do
       visit '/merchants-dashboard'
-      save_and_open_page
       expect(page).to have_content("Merchants Dashboard")
     end
     it 'should show merchant with most items' do

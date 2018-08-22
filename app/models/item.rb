@@ -13,14 +13,14 @@ class Item < ActiveRecord::Base
   end
 
   def self.avg_price
-    Item.average(:unit_price)
+    avg = (Item.average(:unit_price)).round(2)
   end
 
   def self.newest_item
-    Item.order(:created_at).last.name
+    Item.order(:created_at).last
   end
 
   def self.oldest_item
-    Item.order(:created_at).first.name
+    Item.order(:created_at).first
   end
 end
