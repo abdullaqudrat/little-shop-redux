@@ -13,7 +13,7 @@ class Item < ActiveRecord::Base
   end
 
   def self.avg_price
-    avg = (Item.average(:unit_price)).round(2)
+    avg = Item.average(:unit_price)/100
   end
 
   def self.newest_item

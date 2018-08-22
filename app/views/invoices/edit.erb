@@ -4,24 +4,6 @@
   </div>
 </div>
 
-<!-- <form class="update-invoice" action="/invoices/<%= @invoice.id %>" method="POST">
-  <input type="hidden" name="_method" value="PUT" />
-  <select disabled id='merchant_dropdown' name='merchant_dropdown' type='text'>
-  <% @merchants.each do |merchant| %>
-    <option value="<%= merchant.id %>"> <%= merchant.name %> </option>
-  <% end %>
-  </select>
-  <select id='status_dropdown' name='invoice[status]' type='text'>
-    <option value="Pending">Pending</option>
-    <option value="Shipped">Shipped</option>
-    <option value="Returned">Returned</option>
-  </select>
-  <input type='submit' value="Update Invoice">
-  <form class="update-invoice" action="/invoices/<%= @invoice.id %>" method="GET">
-    <input type='submit' value="Cancel">
-  </form>
-</form> -->
-
 <div class="card">
   <div class="card-body">
     <form class="update-invoice" action="/invoices/<%= @invoice.id %>" method="POST">

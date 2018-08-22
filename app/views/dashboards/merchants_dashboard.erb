@@ -4,16 +4,22 @@
   </div>
 </div>
 
-
-<h3>Merchant With Most Items: <%= Merchant.with_most_items %><h3>
-
-<h3>Merchant With Highest Price Item: <%= Merchant.with_highest_price_item %><h3>
-
-<div>
-<% @merchants.each do |m| %>
-  <h3><a href="/merchants/<%= m.id %>"><%= m.name %></a></h3>
-  <h4><u>Item Count:</u> <%= m.total_item_count %></a></h4>
-  <h4><u>Average Item Price:</u> <%= number_to_currency(m.average_item_price) %></a></h4>
-  <h4><u>Total Cost Of Items:</u> <%= number_to_currency(m.total_price_of_all_items) %></a></h4>
-<% end %>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h4 class="text text-center">Merchant With Most Items: <a href="/merchants/<%= Merchant.with_most_items.id %>"><%= Merchant.with_most_items.name %></a></h4>
+    <h4 class="text text-center">Merchant With Highest Price Item: <a href="/merchants/<%= Merchant.with_highest_price_item.id %>"><%= Merchant.with_highest_price_item.name %></a></h4>
+  </div>
 </div>
+
+<% @merchants.each do |m| %>
+<div class="card-deck">
+  <div class="card" style="width: 10rem;">
+    <div class="card-body">
+      <h5 class="card-title text-center" id="h5"><a href="/merchants/<%= m.id %>"><%= m.name %></a></h5>
+      <p class="card-text"><u>Item Count:</u> <%= m.total_item_count %></p>
+      <p class="card-text"><u>Average Item Price:</u> <%= number_to_currency(m.average_item_price) %></p>
+      <p class="card-text">Total Cost Of Items:</u> <%= number_to_currency(m.total_price_of_all_items) %></p>
+    </div>
+  </div>
+</div>
+<% end %>
