@@ -11,7 +11,7 @@
   <input type="hidden" name="_method" value="DELETE">
   <input type="submit" class="btn btn-secondary btn-sm" value="Delete" />
 </form>
-<p><%= @item.unit_price %></p>
+<p><%= number_to_currency((@item.unit_price)/100.to_f) %></p>
 <p><%= @item.description %></p>
 <img src= "<%= @item.image  %>" alt="<%= @item.name %>-image">
 <a href='/merchants/<%= @merchant.id %>'><h2>Merchant: <%= @merchant.name %></h2></a>
