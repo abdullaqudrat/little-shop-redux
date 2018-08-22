@@ -46,22 +46,24 @@ RSpec.describe 'Item create page' do
     click_on "Create Item"
     expect(current_path).to eq("/items")
   end
-  #
-  # it 'should link back to item index after Cancel button clicked' do
-  #   visit "/items/new"
-  #
-  #   click_on "Cancel"
-  #   expect(current_path).to eq("/items")
-  # end
-  #
-  # it 'should show new item at index after Create button clicked' do
-  #   item = Item.create(name: "Turing Ale", description: "Beer", unit_price: 12, image: 'pic_of_beer_here')
-  #
-  #   visit "/items/new"
-  #
-  #   fill_in('item[name]', with: "Abdulla's Shop")
-  #
-  #   click_on "Create Item"
-  #   expect(page).to have_content("Abdulla's Shop")
-  # end
+
+  it 'should link back to item index after Cancel button clicked' do
+    visit "/items/new"
+
+    click_on "Cancel"
+    expect(current_path).to eq("/items")
+  end
+
+  it 'should show new item at index after Create button clicked' do
+    visit "/items/new"
+
+    fill_in('item[name]', with: "Abdulla's Shop")
+    fill_in('item[description]', with: "Pink Elephant")
+    fill_in('item[unit_price]', with: 14)
+    fill_in('item[image]', with: "path_to_image")
+
+    click_on "Create Item"
+
+    expect(page).to have_content("Abdulla's Shop")
+  end
 end

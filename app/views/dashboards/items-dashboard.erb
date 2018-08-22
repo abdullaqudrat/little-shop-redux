@@ -14,7 +14,7 @@
   <div class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title text-center" id="h5">Avg Price Per Item</h5>
-      <p class="card-text text-center">$<%= @avg_price %></p>
+      <p class="card-text text-center"><%= number_to_currency(@avg_price) %></p>
     </div>
   </div>
   <div class="card" style="width: 18rem;">

@@ -12,10 +12,10 @@ RSpec.describe 'Merchants Dashboard page' do
     end
     it 'should show merchant with most items' do
       visit '/merchants-dashboard'
-      expect(page).to have_content("Merchant With Most Items: #{Merchant.with_most_items}")
+      expect(page).to have_content("Merchant With Most Items: #{Merchant.with_most_items.name}")
     end
     it 'should show merchant with highest price item' do
       visit '/merchants-dashboard'
-      expect(page).to have_content("Merchant With Highest Price Item: #{Merchant.with_highest_price_item}")
+      expect(page).to have_content("Merchant With Highest Price Item: #{Merchant.with_highest_price_item.name}")
     end
   end

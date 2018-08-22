@@ -49,10 +49,16 @@ RSpec.describe Merchant do
         expect(@merchant_1.total_price_of_all_items).to eq(16)
       end
     end
-    describe 'with_most_items method' do
+    describe 'highest price item method' do
       it 'returns the merchant with highest price item' do
 
-        expect(Merchant.with_highest_price_item).to eq(@merchant_2.name)
+        expect(Merchant.with_highest_price_item.name).to eq(@merchant_2.name)
+      end
+    end
+    describe 'with most items' do
+      it 'returns the merchant with most items' do
+
+        expect(Merchant.with_most_items.name).to eq(@merchant_1.name)
       end
     end
   end
